@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t jnalewabau/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true jnalewabau/docker-react yarn test
